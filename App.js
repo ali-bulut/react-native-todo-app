@@ -29,7 +29,7 @@ export default function App() {
         data={toDos}
         keyExtractor={(item, index) => item.key}
         renderItem={(itemData) => (
-          <ToDoItem title={itemData.item.value} number={itemData.index} />
+          <ToDoItem onDelete={() => console.log('Does that works?')} title={itemData.item.value} number={itemData.index} />
         )}
       />
     </View>

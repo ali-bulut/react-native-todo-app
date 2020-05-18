@@ -1,12 +1,14 @@
 import React from "react";
 
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const ToDoItem = (props) => {
   return (
+      <TouchableOpacity activeOpacity={0.6} onPress={props.onDelete}>
     <View style={styles.listItem}>
       <Text>{props.number + 1 + "- " + props.title}</Text>
     </View>
+    </TouchableOpacity>
   );
 };
 
