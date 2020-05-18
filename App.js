@@ -9,11 +9,19 @@ export default function App() {
   const [toDos, setToDos] = useState([]);
 
   const addToDoHandler = (toDoTitle) => {
-    setToDos((currentToDos) => [
+    setToDos((currentToDos) => {
+      return [
       ...currentToDos,
       { key: Math.random().toString(), value: toDoTitle },
-    ]);
+      ]
+  });
   };
+
+  const removeToDoHandler = (toDoKey) => {
+    setToDos(currentToDos => {
+      return currentToDos.filter((toDo) => toDo.key !== toDoKey)
+    })
+  }
 
   return (
     <View style={styles.screen}>
@@ -29,7 +37,7 @@ export default function App() {
         data={toDos}
         keyExtractor={(item, index) => item.key}
         renderItem={(itemData) => (
-          <ToDoItem onDelete={() => console.log('Does that works?')} title={itemData.item.value} number={itemData.index} />
+          <ToDoItem onDelete={() => removeToDoHandler(itemData.item.key)} title={itemData.item.value} number={itemData.index} />
         )}
       />
     </View>
