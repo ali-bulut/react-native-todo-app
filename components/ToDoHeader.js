@@ -4,7 +4,7 @@ import {View, Text} from 'react-native'
 
 const ToDoHeader = () => {
     return (
-        <View style={{ alignItems: "center" }}>
+        <View style={{ alignItems: "center", marginBottom: 15 }}>
         <Text
           style={{
             fontSize: 30,
